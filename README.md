@@ -6,19 +6,19 @@ Mixpanel integration for use with React Native apps built on Expo.
 ## Installation
 
 ```
-npm install @benawad/expo-mixpanel-analytics --save
+npm install @eeon-tech/expo-mixpanel-analytics --save
 ```
 
 ## Import
 
 Your React Native app's screen resolution, app name, app ID, app version, device information and multiple other parameters will be automatically resolved and sent with each event.
 ```
-import ExpoMixpanelAnalytics from '@benawad/expo-mixpanel-analytics';
+import ExpoMixpanelAnalytics from '@eeon-tech/expo-mixpanel-analytics';
 ```
 
 ## Usage
 ```
-const analytics = new ExpoMixpanelAnalytics("5224da5bbbed3fdeaad0911820f1bf2x");
+const analytics = new ExpoMixpanelAnalytics("YOUR MIXPANEL TOKEN");
 
 analytics.identify("13793");
 
