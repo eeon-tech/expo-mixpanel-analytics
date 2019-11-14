@@ -1,16 +1,15 @@
 {
-  "name": "@benawad/expo-mixpanel-analytics",
-  "version": "0.1.7",
+  "name": "@eeon/expo-mixpanel-analytics",
+  "version": "0.0.1",
   "description": "Mixpanel integration for use with React Native apps built on Expo.",
-  "main": "dist/src/index.js",
-  "types": "dist/src/index.d.ts",
+  "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "tsc"
+    "commit": "git-cz",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/benawad/expo-mixpanel-analytics.git"
+    "url": "https://github.com/eeon-tech/expo-mixpanel-analytics"
   },
   "keywords": [
     "react",
@@ -19,13 +18,14 @@
     "mixpanel",
     "analytics"
   ],
-  "author": "Ben Awad",
+  "author": "Mitch Masia",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/codekadiya/expo-mixpanel-analytics/issues"
+    "url": "https://github.com/eeon-tech/expo-mixpanel-analytics/issues"
   },
   "dependencies": {
-    "buffer": "^5.2.1"
+    "buffer": "^5.2.1",
+    "fast-safe-stringify": "^2.0.7"
   },
   "peerDependencies": {
     "expo-constants": "^5.0.1",
@@ -33,9 +33,40 @@
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz"
   },
   "devDependencies": {
-    "@types/expo": "^32.0.10",
-    "@types/react-native": "^0.57.43",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@commitlint/prompt": "^8.2.0",
+    "@semantic-release/changelog": "^3.0.5",
+    "@semantic-release/commit-analyzer": "^6.3.3",
+    "@semantic-release/git": "^7.0.18",
+    "@semantic-release/github": "^5.5.5",
+    "@semantic-release/npm": "^5.3.4",
+    "@semantic-release/release-notes-generator": "^7.3.2",
+    "commitizen": "^4.0.3",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.5.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.0.9",
+    "lint-staged": "^9.4.3",
+    "prettier": "^1.19.1",
     "rimraf": "^2.6.3",
-    "typescript": "^3.4.3"
+    "semantic-release": "^15.13.30"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "./node_modules/.bin/commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "./node_modules/.bin/lint-staged"
+    }
+  },
+  "lint-staged": {
+    "./src/**/*.js": [
+      "./node_modules/.bin/eslint --fix ./src",
+      "git add"
+    ]
+  },
+  "config": {
+    "commitizen": {
+      "path": "@commitlint/prompt"
+    }
   }
 }
